@@ -1,24 +1,120 @@
 * {
-    font-family: 'Roboto', sans-serif;
-    box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-    background-color: #f6f8fc;
+  background-color: #f6f8fc;
 }
 
 .content {
-    width: 100vw;
-    height: 100vh;
-    padding: 1rem;
-    background-color: #fff;
+  width: 100vw;
+  height: 100vh;
+  padding: 1rem;
+  background-color: #fff;
+  position: relative;
+}
+
+dialog {
+  border: none;
+  background-color: transparent;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  width: 370px;
+  height: 500px;
+  background-color: #fb0065;
+  border-radius: 8px;
+  border: 2px solid black;
+  padding: 16px;
+}
+
+.img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  height: 200px;
+  background-color: #99cc9b;
+  border-radius: 16px;
+  border: 2px solid black;
+}
+
+.btn {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.dialog_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  color: #000000;
+}
+
+.abilities_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px;
+  width: 100%;
+  border: 2px solid black;
+  background-color: #99cc9b;
+  border-radius: 8px;
+
+  & h3 {
+    margin-bottom: 8px;
+    text-decoration: underline;
+  }
+}
+
+.abilities {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.btn button {
+  font-size: 1.5rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
 }
 
 @media screen and (min-width: 992px) {
-    .content {
-        max-width: 992px;
-        height: auto;
-        margin: 1rem auto;
-        border-radius: 1rem;
-    }
+  .content {
+    max-width: 992px;
+    height: auto;
+    margin: 1rem auto;
+    border-radius: 1rem;
+  }
+}
+
+@supports not selector(::backdrop) {
+  body::before {
+    box-sizing: border-box;
+    content: "⚠️ Your browser doesn't support ::backdrop";
+    display: block;
+    max-width: 72rem;
+    margin: auto;
+    color: #f44336;
+    font-weight: bold;
+    padding: 2rem 2rem 0;
+  }
 }
